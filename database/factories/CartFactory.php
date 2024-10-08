@@ -11,18 +11,13 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class CartFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     protected $model = \App\Models\Cart::class;
 
     public function definition()
     {
         return [
             'user_id' => User::factory(),
-            'product_id' => Product::factory(),
+            'product_id' => Product::factory()->create()->id, // O'sha yerda yaratilgan product_id ni olish
             'count' => $this->faker->numberBetween(1, 5),
         ];
     }

@@ -11,11 +11,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class CommentFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     protected $model = \App\Models\Comment::class;
 
     public function definition()
@@ -23,7 +18,7 @@ class CommentFactory extends Factory
         return [
             'author' => $this->faker->name,
             'user_id' => User::factory(),
-            'product_id' => Product::factory()->nullable(),
+            'product_id' => Product::factory(), // Bu o'zaro bog'lanish, shuni yodda tuting
         ];
     }
 }
