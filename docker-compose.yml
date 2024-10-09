@@ -32,7 +32,8 @@ services:
             MYSQL_DATABASE: online_store_db  # Create a database named 'laravel'
             MYSQL_ROOT_PASSWORD: root  # Set the root password for MySQL
         volumes:
-            - online_store_db  # Persist MySQL data
+            - ./online_store_db:/var/lib/mysql  # 'online_store_db' mutlaq yo'l bo'lishi kerak
+
         networks:
             - online_store-network  # Connect to the custom network
 
