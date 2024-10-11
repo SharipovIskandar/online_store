@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ProductCollection;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -55,5 +57,11 @@ class ProductController extends Controller
     {
         Product::destroy($id);
         return response()->json(null, 204);
+    }
+    public function getProductsByCategory($category)
+    {
+        return response()->json([
+            $product = Product::query()->where('category_id', $category)->with('category')
+        ]);
     }
 }

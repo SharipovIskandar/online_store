@@ -13,3 +13,4 @@ Route::apiResource('users', UserController::class);
 Route::apiResource('products', ProductController::class);
 Route::apiResource('images', ImageController::class);
 Route::apiResource('carts', CartController::class);
+Route::get('/categories/{category}/products', [ProductController::class, 'getProductsByCategory']);
